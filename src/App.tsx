@@ -1,13 +1,21 @@
 import { BriefcaseIcon } from "@heroicons/react/16/solid";
 import "./App.css";
-import { Accordion, Button, Header, Typography } from "./components";
+import {
+  Accordion,
+  Button,
+  Header,
+  Modal,
+  ProductCard,
+  ProductContent,
+  Typography,
+} from "./components";
 import { ButtonType } from "./enum";
 
 function App() {
   return (
     <main className='h-screen'>
       <Header variant='lg'>123243</Header>
-      <Button label='asdas' iconRight={<BriefcaseIcon />} buttonType={ButtonType.SECONDARY}/>
+      <Button label='asdas' iconRight={<BriefcaseIcon />} />
       <Typography variant='md'>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis nulla
         aliquam accusamus nemo nesciunt, saepe consequuntur provident. Et quo
@@ -27,12 +35,62 @@ function App() {
         accusamus sint in cupiditate iusto eligendi officiis veniam repellat,
         doloremque repudiandae nisi ullam.
       </Accordion>
+
+      <ProductCard
+        title='sdfsdf'
+        imageUrl='./cardIcons/Group 5077.svg'
+        content=' Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta error
+        fugiat pariatur? Beatae molestiae laborum fuga numquam iure deleniti, ab
+        odit nostrum natus possimus iste quas sint officia praesentium
+        accusantium. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        Delectus rem dolorum placeat asperiores libero cum dolores minus
+        accusamus sint in cupiditate iusto eligendi officiis veniam repellat,
+        doloremque repudiandae nisi ullam.'
+        handleButtonClick={() => console.log("clicked")}
+      />
+      <ProductContent
+        title='Asdasd'
+        content=' Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta error
+        fugiat pariatur? Beatae molestiae laborum fuga numquam iure deleniti, ab
+        odit nostrum natus possimus iste quas sint officia praesentium
+        accusantium. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        Delectus rem dolorum placeat asperiores libero cum dolores minus
+        accusamus sint in cupiditate iusto eligendi officiis veniam repellat,
+        doloremque repudiandae nisi ullam.'
+        data={[
+          {
+            title: "Product 1",
+            content: "this is accordion content",
+            imageUrl: "./cardIcons/Group 5077.svg",
+          },
+          {
+            title: "Product 1",
+            content: "this is accordion content",
+            imageUrl: "./cardIcons/Group 5077.svg",
+          },
+          {
+            title: "Product 1",
+            content: "this is accordion content",
+            imageUrl: "./cardIcons/Group 5077.svg",
+          },
+        ]}
+        productTitle='Modal Title'
+        productText='m. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        Delectus rem dolorum placeat asperiores libero cum dolores minus
+        accusamus sint in cupi'
+      />
       <img
         src='/public/cardIcons/Group 5077.svg'
         className='h-20 w-20'
         alt=''
       />
       <div className='text-red-500'>asds</div>
+      {/* <Modal title='Modal title' show={true}>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus illum
+        adipisci atque! Saepe sunt voluptates dolorum voluptatem beatae, fugit
+        vel pariatur voluptas recusandae accusantium, tenetur, eligendi ipsam
+        dolores qui iure!
+      </Modal> */}
     </main>
   );
 }

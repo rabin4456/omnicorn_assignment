@@ -28,3 +28,26 @@ interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   iconRight?: React.ReactElement;
   className?: string;
 }
+
+interface IProductCard {
+  title: string;
+  imageUrl: string;
+  content: string;
+  handleButtonClick: () => void;
+}
+
+interface IProductContent {
+  title: string;
+  content: string;
+  productTitle:string;
+  productText:string;
+  data: { title: string; content: string; imageUrl: string }[];
+}
+
+interface IModal {
+  title?: string;
+  show: boolean;
+  className?: string;
+  onModalClose: () => void;
+  children: React.ReactNode;
+}
