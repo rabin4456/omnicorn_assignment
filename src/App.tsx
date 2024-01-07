@@ -1,97 +1,80 @@
-import { BriefcaseIcon } from "@heroicons/react/16/solid";
 import "./App.css";
-import {
-  Accordion,
-  Button,
-  Header,
-  Modal,
-  ProductCard,
-  ProductContent,
-  Typography,
-} from "./components";
-import { ButtonType } from "./enum";
+import { Accordion, Header, ProductCard, ProductInfoCard } from "./components";
+import { AccordionType, HeaderType } from "./enum";
+import { useState } from "react";
+import { cardData, productData } from "./utils/data";
 
 function App() {
+  const [selectedProductData, setSelectedProductData] =
+    useState<IProducts | null>(null);
+
+  const handleProductClick = (id: number) => {
+    const tempData = productData?.find((el) => el.id === id);
+    if (tempData) {
+      setSelectedProductData(tempData);
+    }
+  };
+
   return (
-    <main className='h-screen'>
-      <Header variant='lg'>123243</Header>
-      <Button label='asdas' iconRight={<BriefcaseIcon />} />
-      <Typography variant='md'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis nulla
-        aliquam accusamus nemo nesciunt, saepe consequuntur provident. Et quo
-        quia eum velit sed id! Molestias fugit necessitatibus dignissimos
-        consequuntur consectetur.
-      </Typography>
+    <main className='h-screen py-10 sm:px-20 px-7 overflow-y-auto'>
+      <Header variant={HeaderType.LARGE} className='text-center'>
+        Section title
+      </Header>
+      <Header variant={HeaderType.SMALL} className='text-center mb-4'>
+        Section subtitle
+      </Header>
 
-      <Accordion
-        buttonTitle='Acccordion'
-        imageUrl={"./accordionIcons/Group 5078.svg"}
-        variant='secondary'
-      >
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta error
-        fugiat pariatur? Beatae molestiae laborum fuga numquam iure deleniti, ab
-        odit nostrum natus possimus iste quas sint officia praesentium
-        accusantium. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Delectus rem dolorum placeat asperiores libero cum dolores minus
-        accusamus sint in cupiditate iusto eligendi officiis veniam repellat,
-        doloremque repudiandae nisi ullam.
-      </Accordion>
+      {/*  for destop */}
+      <section className='sm:block hidden'>
+        <div className=' grid xl:grid-cols-4 grid-cols-2 gap-4 mb-10'>
+          {cardData?.map((card) => (
+            <div key={card.id}>
+              <ProductCard
+                title={card.title}
+                imageUrl={card.imageUrl}
+                content={card.desc}
+                btnClassName={
+                  card.id === selectedProductData?.id ? "bg-yellow" : ""
+                }
+                handleCardClick={() => handleProductClick(card.id)}
+              />
+            </div>
+          ))}
+        </div>
+        {selectedProductData ? (
+          <ProductInfoCard
+            title={selectedProductData?.title}
+            content={selectedProductData?.desc}
+            data={selectedProductData?.products}
+            productModalText={selectedProductData?.desc}
+            productModalTitle={selectedProductData?.title}
+          />
+        ) : null}
+      </section>
 
-      <ProductCard
-        title='sdfsdf'
-        imageUrl='./cardIcons/Group 5077.svg'
-        content=' Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta error
-        fugiat pariatur? Beatae molestiae laborum fuga numquam iure deleniti, ab
-        odit nostrum natus possimus iste quas sint officia praesentium
-        accusantium. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Delectus rem dolorum placeat asperiores libero cum dolores minus
-        accusamus sint in cupiditate iusto eligendi officiis veniam repellat,
-        doloremque repudiandae nisi ullam.'
-        handleButtonClick={() => console.log("clicked")}
-      />
-      <ProductContent
-        title='Asdasd'
-        content=' Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta error
-        fugiat pariatur? Beatae molestiae laborum fuga numquam iure deleniti, ab
-        odit nostrum natus possimus iste quas sint officia praesentium
-        accusantium. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Delectus rem dolorum placeat asperiores libero cum dolores minus
-        accusamus sint in cupiditate iusto eligendi officiis veniam repellat,
-        doloremque repudiandae nisi ullam.'
-        data={[
-          {
-            title: "Product 1",
-            content: "this is accordion content",
-            imageUrl: "./cardIcons/Group 5077.svg",
-          },
-          {
-            title: "Product 1",
-            content: "this is accordion content",
-            imageUrl: "./cardIcons/Group 5077.svg",
-          },
-          {
-            title: "Product 1",
-            content: "this is accordion content",
-            imageUrl: "./cardIcons/Group 5077.svg",
-          },
-        ]}
-        productTitle='Modal Title'
-        productText='m. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Delectus rem dolorum placeat asperiores libero cum dolores minus
-        accusamus sint in cupi'
-      />
-      <img
-        src='/public/cardIcons/Group 5077.svg'
-        className='h-20 w-20'
-        alt=''
-      />
-      <div className='text-red-500'>asds</div>
-      {/* <Modal title='Modal title' show={true}>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus illum
-        adipisci atque! Saepe sunt voluptates dolorum voluptatem beatae, fugit
-        vel pariatur voluptas recusandae accusantium, tenetur, eligendi ipsam
-        dolores qui iure!
-      </Modal> */}
+      {/*  for mobile */}
+      <section className='sm:hidden flex flex-col gap-y-3'>
+        {cardData?.map((card) => (
+          <div key={card.id}>
+            <Accordion
+              buttonTitle={card.title}
+              imageUrl={card.imageUrl}
+              variant={AccordionType.SECONDARY}
+              onClick={() => handleProductClick(card.id)}
+            >
+              {card?.id === selectedProductData?.id ? (
+                <ProductInfoCard
+                  title={selectedProductData?.title}
+                  content={selectedProductData?.desc}
+                  data={selectedProductData?.products}
+                  productModalText={selectedProductData?.desc}
+                  productModalTitle={selectedProductData?.title}
+                />
+              ) : null}
+            </Accordion>
+          </div>
+        ))}
+      </section>
     </main>
   );
 }

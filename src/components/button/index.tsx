@@ -36,10 +36,10 @@ export const Button: React.FC<IButton> = (props) => {
       type={type}
       disabled={loading || disabled}
       className={cn(
-        className,
         fullWidth ? "w-full" : "w-auto",
         "flex h-16 items-center whitespace-nowrap border border-transparent  font-medium  disabled:cursor-not-allowed disabled:opacity-50 text-dark",
-        btnClassName
+        btnClassName,
+        className
       )}
       {...rest}
     >
