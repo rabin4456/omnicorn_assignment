@@ -19,7 +19,7 @@ export const cardData = [
     },
     {
       id: 4,
-      title: "card Title 4 adwaw  wada awd ",
+      title: "card Title 4 adwaw  wada",
       imageUrl: "./cardIcons/Group 5077.svg",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis nullaaliquam accusamus nemo nesciunt, saepe consequuntur provident. Et quoquia eum velit",
     },
