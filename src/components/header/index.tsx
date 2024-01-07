@@ -9,10 +9,10 @@ const variantClassName = {
 };
 
 export const Header: React.FC<IHeader> = (props) => {
-  const { className, children, variant =HeaderType.MEDIUM } = props;
+  const { className, children, variant = HeaderType.MEDIUM } = props;
 
   return (
-    <h1
+    <p
       className={cn(
         "py-3 font-semibold  leading-8 text-dark ",
         variantClassName[variant],
@@ -20,6 +20,6 @@ export const Header: React.FC<IHeader> = (props) => {
       )}
     >
       {children}
-    </h1>
+    </p>
   );
 };

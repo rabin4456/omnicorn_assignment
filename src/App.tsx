@@ -26,7 +26,7 @@ function App() {
 
       {/*  for destop */}
       <section className='sm:block hidden'>
-        <div className=' grid xl:grid-cols-4 grid-cols-2 gap-4 mb-10'>
+        <div className=' grid xl:grid-cols-4 grid-cols-2 gap-4 mb-10  '>
           {cardData?.map((card) => (
             <div key={card.id}>
               <ProductCard
@@ -34,7 +34,7 @@ function App() {
                 imageUrl={card.imageUrl}
                 content={card.desc}
                 btnClassName={
-                  card.id === selectedProductData?.id ? "bg-yellow" : ""
+                  card.id === selectedProductData?.id ? "bg-yellow border-l-0 border-t-0 border-b-[4px] border-r-[4px] border-neutral-500" : ""
                 }
                 handleCardClick={() => handleProductClick(card.id)}
               />

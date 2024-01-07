@@ -14,6 +14,10 @@ export default {
         sm: "980px",
       },
 
+      boxShadow: {
+        '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
+      },
+
       colors: {
         primary: "#FFE58C",
         secondary: "#F15A29",

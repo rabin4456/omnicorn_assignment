@@ -20,7 +20,7 @@ export const Button: React.FC<IButton> = (props) => {
   switch (buttonType) {
     case ButtonType.PRIMARY:
       btnClassName =
-        "hover:bg-yellow bg-gray  justify-center px-6 text-base  rounded-tr-full ";
+        "hover:bg-yellow bg-gray  justify-center px-6 text-base  rounded-tr-[32px] ";
       break;
     case ButtonType.SECONDARY:
       btnClassName =
