@@ -1,5 +1,5 @@
 import "./App.css";
-import { Accordion, Header, ProductCard, ProductContent } from "./components";
+import { Accordion, Header, ProductCard, ProductInfoCard } from "./components";
 import { AccordionType, HeaderType } from "./enum";
 import { useState } from "react";
 import { cardData, productData } from "./utils/data";
@@ -42,7 +42,7 @@ function App() {
           ))}
         </div>
         {selectedProductData ? (
-          <ProductContent
+          <ProductInfoCard
             title={selectedProductData?.title}
             content={selectedProductData?.desc}
             data={selectedProductData?.products}
@@ -63,7 +63,7 @@ function App() {
               onClick={() => handleProductClick(card.id)}
             >
               {card?.id === selectedProductData?.id ? (
-                <ProductContent
+                <ProductInfoCard
                   title={selectedProductData?.title}
                   content={selectedProductData?.desc}
                   data={selectedProductData?.products}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Accordion, Button, Header, Modal, Typography } from "../..";
 import { ButtonType } from "../../../enum";
 
-export const ProductContent: React.FC<IProductContent> = (props) => {
+export const ProductInfoCard: React.FC<IProductInfoCard> = (props) => {
   const { title, content, data, productModalText, productModalTitle } = props;
   const [openModal, setOpenModal] = useState(false);
 

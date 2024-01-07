@@ -40,7 +40,7 @@ interface IProductCard {
   handleCardClick?: () => void;
 }
 
-interface IProductContent {
+interface IProductInfoCard {
   title: string;
   content: string;
   productModalText: string;
