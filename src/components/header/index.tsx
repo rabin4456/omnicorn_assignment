@@ -1,14 +1,15 @@
 import React from "react";
 import { cn } from "../../utils";
+import { HeaderType } from "../../enum";
 
 const variantClassName = {
   sm: "sm:text-2xl text-xl font-medium",
-  md: "sm:text-4xl text-3xl",
-  lg: "sm:text-5xl text-4xl",
+  md: "sm:text-4xl text-2xl",
+  lg: "sm:text-5xl text-3xl",
 };
 
 export const Header: React.FC<IHeader> = (props) => {
-  const { className, children, variant = "md" } = props;
+  const { className, children, variant =HeaderType.MEDIUM } = props;
 
   return (
     <h1

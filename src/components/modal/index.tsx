@@ -7,7 +7,7 @@ export const Modal: React.FC<IModal> = (props) => {
   return (
     <>
       {show && (
-        <div className='fixed inset-0 z-50 overflow-y-auto'>
+        <div className='fixed inset-0 z-50 overflow-y-auto animate-slideUpAndFade'>
           <div className='flex items-center justify-center min-h-screen'>
             <div
               className={clsx(

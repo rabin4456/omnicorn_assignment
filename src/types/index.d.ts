@@ -16,6 +16,8 @@ interface IAccordion {
   buttonTitle: string;
   variant?: "primary" | "secondary";
   imageUrl: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [x: string]: any;
 }
 
 interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -34,15 +36,16 @@ interface IProductCard {
   title: string;
   imageUrl: string;
   content: string;
-  handleButtonClick: () => void;
+  btnClassName?:string;
+  handleCardClick?: () => void;
 }
 
 interface IProductContent {
   title: string;
   content: string;
-  productTitle: string;
-  productText: string;
-  data: { title: string; content: string; imageUrl: string }[];
+  productModalText: string;
+  productModalTitle: string;
+  data: { title: string; desc: string; imageUrl: string }[];
 }
 
 interface IModal {
@@ -51,4 +54,11 @@ interface IModal {
   className?: string;
   onModalClose: () => void;
   children: React.ReactNode;
+}
+
+interface IProducts {
+  id: string | number;
+  title: string;
+  desc: string;
+  products: { title: string; imageUrl: string; desc: string }[];
 }

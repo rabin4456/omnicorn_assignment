@@ -1,30 +1,13 @@
-# React + TypeScript + Vite
+How to run project ?
+1) clone repo
+2) npm install  (to install packages)
+3) npm run dev  (run the project)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+vite
+- Vite is used instead of create-react-app because it has more Speed and performance.It has flexible configuration system  for specific project needs.
 
-Currently, two official plugins are available:
+tailwind-merge and clsx
+- Clsx package is used to combine css strings and tailwind merge is used inorder to avoid css duplication. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Hero icons
+- HeroIcons package is used for icons. It is light-weight , simple to use and has variety of icons according to  project requirement.

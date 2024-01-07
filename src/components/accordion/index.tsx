@@ -11,19 +11,22 @@ export const Accordion: React.FC<IAccordion> = (props) => {
     imageUrl,
     className,
     variant = AccordionType.PRIMARY,
+    ...rest
   } = props;
 
-  const [openContent, setOpenContent] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
   const handleToogle = () => {
-    setOpenContent(!openContent);
+    setShowContent(!showContent);
   };
 
   return (
     <div
       className={cn("pt-2 bg-transparent  rounded-xl   ", {
         className,
+        "bg-white rounded-b-[40px]": variant === AccordionType.SECONDARY,
       })}
+      {...rest}
     >
       <div
         className={cn(
@@ -33,23 +36,31 @@ export const Accordion: React.FC<IAccordion> = (props) => {
               variant === AccordionType.SECONDARY,
           },
           {
-            "border-b border-gray":
-              openContent && variant === AccordionType.SECONDARY,
+            "border-b border-transparent rounded-t-2xl":
+              showContent && variant === AccordionType.SECONDARY,
           }
         )}
       >
         <button
-          className={cn('flex items-center cursor-pointer sm:gap-x-4 gap-x-6  w-full  ',{
-            "pb-4":
-             variant === AccordionType.PRIMARY,
-          })}
+          className={cn(
+            "flex items-center cursor-pointer sm:gap-x-4 gap-x-6  w-full  ",
+            {
+              "pb-4": variant === AccordionType.PRIMARY,
+            }
+          )}
           onClick={handleToogle}
         >
           {imageUrl && <img src={imageUrl} alt='icon' className='' />}
-          <p>{buttonTitle}</p>
+          <p
+            className={cn("", {
+              "font-semibold text-lg pl-4": variant === AccordionType.SECONDARY,
+            })}
+          >
+            {buttonTitle}
+          </p>
         </button>
 
-        {openContent ? (
+        {showContent ? (
           <ChevronUpIcon
             className='h-7 w-7 cursor-pointer mr-5 sm:m-0'
             onClick={handleToogle}
@@ -70,9 +81,9 @@ export const Accordion: React.FC<IAccordion> = (props) => {
 
       <section
         className={cn(
-          " block my-8 sm:p-0 px-2 text-justify  animate-slideDownAndFade",
+          " block sm:my-8 my-5 text-justify  animate-slideDownAndFade",
           {
-            "hidden animate-slideUpAndFade": !openContent,
+            "hidden animate-slideUpAndFade": !showContent,
           }
         )}
       >
