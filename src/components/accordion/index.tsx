@@ -13,8 +13,18 @@ export const Accordion: React.FC<IAccordion> = (props) => {
   };
 
   return (
-    <div className={cn("py-7 bg-white rounded-xl   ", { className })}>
-      <div className='flex items-center justify-between sm:border-b border-dark '>
+    <div
+      className={cn("py-2 sm:bg-transparent bg-white rounded-xl   ", {
+        className,
+      })}
+    >
+      <div
+        className={cn(
+          "flex items-center justify-between  sm:rounded-none sm:border-b  sm:border-dark border-transparent",
+          { "rounded-2xl border-primary border-b-8": !openContent },
+          { "border-b border-gray": openContent }
+        )}
+      >
         <button
           className='flex items-center cursor-pointer sm:gap-x-4 gap-x-6  w-full p-6  sm:pb-4 sm:pl-0'
           onClick={handleToogle}
@@ -25,7 +35,7 @@ export const Accordion: React.FC<IAccordion> = (props) => {
 
         {openContent ? (
           <ChevronUpIcon
-            className='h-7 w-7 cursor-pointer'
+            className='h-7 w-7 cursor-pointer mr-5 sm:m-0'
             onClick={handleToogle}
           />
         ) : (
@@ -36,14 +46,14 @@ export const Accordion: React.FC<IAccordion> = (props) => {
             />
             <PlusIcon
               onClick={handleToogle}
-              className='sm:hidden block h-7 w-7 cursor-pointer'
+              className='sm:hidden block h-7 w-7 cursor-pointer mr-5'
             />
           </>
         )}
       </div>
 
       <section
-        className={cn(" block my-10 animate-slideDownAndFade", {
+        className={cn(" block my-8 sm:p-0 px-10 animate-slideDownAndFade", {
           "hidden animate-slideUpAndFade": !openContent,
         })}
       >
