@@ -4,6 +4,7 @@ import {
   Accordion,
   Button,
   Header,
+  Modal,
   ProductCard,
   ProductContent,
   Typography,
@@ -73,6 +74,10 @@ function App() {
             imageUrl: "./cardIcons/Group 5077.svg",
           },
         ]}
+        productTitle='Modal Title'
+        productText='m. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        Delectus rem dolorum placeat asperiores libero cum dolores minus
+        accusamus sint in cupi'
       />
       <img
         src='/public/cardIcons/Group 5077.svg'
@@ -80,6 +85,12 @@ function App() {
         alt=''
       />
       <div className='text-red-500'>asds</div>
+      {/* <Modal title='Modal title' show={true}>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus illum
+        adipisci atque! Saepe sunt voluptates dolorum voluptatem beatae, fugit
+        vel pariatur voluptas recusandae accusantium, tenetur, eligendi ipsam
+        dolores qui iure!
+      </Modal> */}
     </main>
   );
 }

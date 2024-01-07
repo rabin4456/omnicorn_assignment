@@ -39,5 +39,15 @@ interface IProductCard {
 interface IProductContent {
   title: string;
   content: string;
+  productTitle:string;
+  productText:string;
   data: { title: string; content: string; imageUrl: string }[];
+}
+
+interface IModal {
+  title?: string;
+  show: boolean;
+  className?: string;
+  onModalClose: () => void;
+  children: React.ReactNode;
 }

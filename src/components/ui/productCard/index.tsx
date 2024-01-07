@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Header } from "../..";
+import { Button, Header, Typography } from "../..";
 
 export const ProductCard: React.FC<IProductCard> = (props) => {
   const { title, content, handleButtonClick, imageUrl } = props;
@@ -10,7 +10,9 @@ export const ProductCard: React.FC<IProductCard> = (props) => {
           <Header variant='sm'>{title}</Header>
           <img src={imageUrl} alt='cartIcon' />
         </div>
-        <p className='py-4'>{content}</p>
+        <Typography className='py-4' variant='sm'>
+          {content}
+        </Typography>
       </div>
       <div className='w-44'>
         <Button label='Discover' onClick={handleButtonClick} />
