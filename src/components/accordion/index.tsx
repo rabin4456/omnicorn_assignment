@@ -2,9 +2,16 @@ import React, { useState } from "react";
 import { cn } from "../../utils";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 import { PlusIcon } from "@heroicons/react/20/solid";
+import { AccordionType } from "../../enum";
 
 export const Accordion: React.FC<IAccordion> = (props) => {
-  const { buttonTitle, children, imageUrl, className } = props;
+  const {
+    buttonTitle,
+    children,
+    imageUrl,
+    className,
+    variant = AccordionType.PRIMARY,
+  } = props;
 
   const [openContent, setOpenContent] = useState(false);
 
@@ -14,19 +21,28 @@ export const Accordion: React.FC<IAccordion> = (props) => {
 
   return (
     <div
-      className={cn("py-2 sm:bg-transparent bg-white rounded-xl   ", {
+      className={cn("pt-2 bg-transparent  rounded-xl   ", {
         className,
       })}
     >
       <div
         className={cn(
-          "flex items-center justify-between  sm:rounded-none sm:border-b  sm:border-dark border-transparent",
-          { "rounded-2xl border-primary border-b-8": !openContent },
-          { "border-b border-gray": openContent }
+          "flex items-center justify-between   sm:rounded-none border-b  border-dark ",
+          {
+            "rounded-2xl border-primary border-b-8 bg-white p-6":
+              variant === AccordionType.SECONDARY,
+          },
+          {
+            "border-b border-gray":
+              openContent && variant === AccordionType.SECONDARY,
+          }
         )}
       >
         <button
-          className='flex items-center cursor-pointer sm:gap-x-4 gap-x-6  w-full p-6  sm:pb-4 sm:pl-0'
+          className={cn('flex items-center cursor-pointer sm:gap-x-4 gap-x-6  w-full  ',{
+            "pb-4":
+             variant === AccordionType.PRIMARY,
+          })}
           onClick={handleToogle}
         >
           {imageUrl && <img src={imageUrl} alt='icon' className='' />}
@@ -53,9 +69,12 @@ export const Accordion: React.FC<IAccordion> = (props) => {
       </div>
 
       <section
-        className={cn(" block my-8 sm:p-0 px-10 animate-slideDownAndFade", {
-          "hidden animate-slideUpAndFade": !openContent,
-        })}
+        className={cn(
+          " block my-8 sm:p-0 px-2 text-justify  animate-slideDownAndFade",
+          {
+            "hidden animate-slideUpAndFade": !openContent,
+          }
+        )}
       >
         {children}
       </section>
