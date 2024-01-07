@@ -14,6 +14,7 @@ interface IAccordion {
   children: React.ReactNode;
   className?: string;
   buttonTitle: string;
+  variant?: "primary" | "secondary";
   imageUrl: string;
 }
 
@@ -39,8 +40,8 @@ interface IProductCard {
 interface IProductContent {
   title: string;
   content: string;
-  productTitle:string;
-  productText:string;
+  productTitle: string;
+  productText: string;
   data: { title: string; content: string; imageUrl: string }[];
 }
 

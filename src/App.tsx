@@ -26,6 +26,7 @@ function App() {
       <Accordion
         buttonTitle='Acccordion'
         imageUrl={"./accordionIcons/Group 5078.svg"}
+        variant='secondary'
       >
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta error
         fugiat pariatur? Beatae molestiae laborum fuga numquam iure deleniti, ab
