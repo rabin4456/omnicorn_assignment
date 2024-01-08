@@ -16,7 +16,7 @@ function App() {
   };
 
   return (
-    <main className='h-screen py-10 sm:px-20 px-7 overflow-y-auto'>
+    <main className='h-screen py-10 sm:px-20 px-4 overflow-y-auto'>
       <Header variant={HeaderType.LARGE} className='text-center'>
         Section title
       </Header>
