@@ -62,18 +62,22 @@ export const Accordion: React.FC<IAccordion> = (props) => {
 
         {showContent ? (
           <ChevronUpIcon
-            className='h-7 w-7 cursor-pointer mr-5 sm:m-0 mb-4'
+            className='h-7 w-7 cursor-pointer  mb-4'
             onClick={handleToogle}
           />
         ) : (
           <>
             <ChevronDownIcon
               onClick={handleToogle}
-              className='sm:block hidden h-7 w-7 cursor-pointer mb-4'
+              className={cn("hidden h-7 w-7 cursor-pointer mb-4", {
+                block: variant === AccordionType.PRIMARY,
+              })}
             />
             <PlusIcon
               onClick={handleToogle}
-              className='sm:hidden block h-7 w-7 cursor-pointer mr-5 mb-4'
+              className={cn("hidden h-7 w-7 cursor-pointer mr-5 mb-4", {
+                block: variant === AccordionType.SECONDARY,
+              })}
             />
           </>
         )}
