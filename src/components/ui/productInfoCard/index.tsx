@@ -19,7 +19,7 @@ export const ProductInfoCard: React.FC<IProductInfoCard> = (props) => {
         <div className='sm:py-14 py-7 px-12 flex flex-col justify-center gap-3  sm:bg-transparent rounded-2xl'>
           <Header variant='lg'>{title}</Header>
           <Typography variant='md'>{content}</Typography>
-          <div className='w-72 pt-6'>
+          <div className='sm:w-72 pt-6'>
             <Button
               label='Discover Product'
               onClick={handleModalOpen}
